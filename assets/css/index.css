@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --light: #f6eee5;
+  --dark: #443d39;
+  --medium: #8b7e72;
+  --gray: #7b7c7d;
+  --mainBlack: #131313;
+  --mainTransition: all 1s ease;
+  --mainSpacing: 0.1rem;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+  position: relative;
+}
+
+/* --------------- Utilitties ---------------- */
+
+.icon {
+  width: 24px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  fill: var(--light);
+}
+
+.cart-icon:hover {
+  fill: #fff;
+}
+
+.feature-icon{
+  fill: var(--mainBlack);
+  width: 4rem;
+  aspect-ratio: 1/1;
+}
+
+.section-heading{
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  font-weight:800;
+  border-bottom: 2px solid var(--mainBlack);
+}
+
+/* --------------- End of Utilitties ---------------- */
+
+
+/* --------------- Navbar ---------------- */
+
+.nav {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--dark);
+  z-index: 1;
+}
+
+.logo {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--light);
+  text-decoration: none;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+
+ul li {
+  list-style: none;
+}
+
+.cool-link {
+  display: inline-block;
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cool-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--light);
+  transition: width 0.3s;
+}
+
+.cool-link:hover::after {
+  width: 100%;
+}
+
+.cart-btn {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --------------- End of Navbar ---------------- */
+
+
+/* --------------- Hero Section ---------------- */
+
+.hero {
+  min-height: calc(100vh - 60px);
+  background: url("/CrazyCloth/images/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner {
+  text-align: center;
+  background: #ffe6c9ab;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 15px;
+  display: inline-block;
+  padding: 2rem;
+}
+.banner-title {
+  font-size: 3.4rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 3rem;
+  color: var(--mainBlack);
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+.banner-btn {
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--medium);
+  color: var(--mainBlack);
+  border: 1px solid var(--mainBlack);
+  transition: var(--mainTransition);
+  cursor: pointer;
+  
+}
+.banner-btn:hover {
+  background: transparent;
+  color: #000;
+}
+
+/* --------------- End Of hero section ---------------- */
+
+
+/* --------------- Categories section ---------------- */
+.categories-section{
+  width:100%;
+  height:max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+.categories{
+  width: 80%;
+  height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.category{
+  background: #000;
+  width: 30%;
+  height: 12rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.category-img{
+  width: 100%;
+  max-height: 100%;
+  transition: var(--mainTransition);
+}
+
+
+.category-overlay{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset rgba(60, 70, 85, 0.5) 0px 0px 40px 0px, inset rgba(60, 70, 85, 0.5) 0px 0px 40px 0px, inset rgba(0, 0, 0, 1) 0px 0px 36px -24px;
+}
+
+.category-name{
+  display: none;
+  font-size: 1.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--light);
+  transition: var(--mainTransition);
+}
+
+.category:hover .category-img{
+  opacity: .5;
+  transform: scale(1.2);
+  transition: var(--mainTransition);
+}
+
+.category-overlay:hover .category-name{
+  display: block;
+  transition: var(--mainTransition);
+}
+
+
+/* --------------- Features ---------------- */
+
+.features-section{
+  width:100%;
+  height:max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+.features{
+  width: 80%;
+  height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.feature{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+.feature-name{
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* --------------- End of Features ---------------- */
+
+
