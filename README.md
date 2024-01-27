@@ -14,7 +14,13 @@ HTML, CSS, Tailwind, JavaScript
 ## Sections
 
 1 => Home
-2 => Category
+2 => Category 
+    => Men
+    => Women
+    => Hoodies
+    => Jackets
+    => Jeans
+    => T-shirts
 3 => Products
 4 => Product View
 5 => Cart
