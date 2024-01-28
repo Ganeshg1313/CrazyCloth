@@ -1,0 +1,101 @@
+{
+    "items" : [
+        {
+            "id" : "1",
+            "fields":{
+                "title" : "Jeans",
+                "price": 10.99,
+                "image":"./images/model_jeans.jpg",
+                "category" : ["JEANS","MEN"]
+            }
+        },
+        {
+            "id" : "2",
+            "fields":{
+                "title" : "Black T-shirt",
+                "price": 10.99,
+                "image":"./images/model_men_black_tshirt.jpg"
+            }
+        },
+        {
+            "id" : "3",
+            "fields":{
+                "title" : "Blue T-shirt",
+                "price": 10.99,
+                "image":"./images/model_men_blue_tshirt.jpg"
+            }
+        },
+        {
+            "id" : "4",
+            "fields":{
+                "title" : "Hoodie",
+                "price": 10.99,
+                "image":"./images/model_men_hoodie.jpg"
+            }
+        },
+        {
+            "id" : "5",
+            "fields":{
+                "title" : "Jacket",
+                "price": 10.99,
+                "image":"./images/model_men_jacket.jpg"
+            }
+        },
+        {
+            "id" : "6",
+            "fields":{
+                "title" : "Shirt",
+                "price": 10.99,
+                "image":"./images/model_men_red_shirt.jpg"
+            }
+        },
+        {
+            "id" : "7",
+            "fields":{
+                "title" : "White T-shirt",
+                "price": 10.99,
+                "image":"./images/model_men_white_tshirt.jpg"
+            }
+        },
+        {
+            "id" : "8",
+            "fields":{
+                "title" : "Black Jacket",
+                "price": 10.99,
+                "image":"./images/model_women_black_jacket.jpg"
+            }
+        },
+        {
+            "id" : "9",
+            "fields":{
+                "title" : "Black T-shirt",
+                "price": 10.99,
+                "image":"./images/model_women_black_tshirt.jpg"
+            }
+        },
+        {
+            "id" : "10",
+            "fields":{
+                "title" : "Jacket",
+                "price": 10.99,
+                "image":"./images/model_women_jacket.jpg"
+            }
+        },
+        {
+            "id" : "11",
+            "fields":{
+                "title" : "Crazy Kit",
+                "price": 10.99,
+                "image":"./images/model_women_modern.jpg"
+            }
+        },
+        {
+            "id" : "12",
+            "fields":{
+                "title" : "Red T-shirt",
+                "price": 10.99,
+                "image":"./images/model_women_red_tshirt.jpg"
+            }
+        }
+    ]
+}

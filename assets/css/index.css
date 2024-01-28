@@ -11,6 +11,7 @@
 
 :root {
   --light: #f6eee5;
+  --extraLight: #f8f7f5;
   --dark: #443d39;
   --medium: #8b7e72;
   --gray: #7b7c7d;
@@ -52,6 +53,7 @@ body {
   text-transform: uppercase;
   font-weight:800;
   border-bottom: 2px solid var(--mainBlack);
+  text-align: center;
 }
 
 /* --------------- End of Utilitties ---------------- */
