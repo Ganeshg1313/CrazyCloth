@@ -46,3 +46,47 @@ body{
     font-size: 1.1rem;
     font-weight: 700;
 }
+
+.product-info{
+    width:100%;
+    height:max-content;
+    display:flex;
+}
+
+.product-info-left{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.product-info-right{
+    width:50%;
+    display: flex;
+    justify-content: end;
+}
+
+.bag-btn{
+    width: 130px;
+    height: 40px;
+    border-radius: 14px;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    padding:8px;
+    cursor: pointer;
+}
+
+.bag-btn svg{
+    fill: var(--dark);
+}
+
+.bag-btn:hover{
+    background-color: #ffdead;
+}
+
+.bag-btn svg:hover{
+    fill: var(--dark);
+}
