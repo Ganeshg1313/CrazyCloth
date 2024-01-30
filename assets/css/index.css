@@ -12,8 +12,10 @@
 :root {
   --light: #f6eee5;
   --extraLight: #f8f7f5;
-  --dark: #443d39;
-  --medium: #8b7e72;
+  /* --dark: #443d39; */
+  --dark: #0a0a0a;
+  /* --medium: #8b7e72; */
+  --medium : #1bff60;
   --gray: #7b7c7d;
   --mainBlack: #131313;
   --mainTransition: all 1s ease;
@@ -39,7 +41,7 @@ body {
 }
 
 .cart-icon:hover {
-  fill: #fff;
+  fill: #1bff60;
 }
 
 .feature-icon{
@@ -108,7 +110,7 @@ ul li {
   display: block;
   width: 0;
   height: 2px;
-  background: var(--light);
+  background: var(--medium);
   transition: width 0.3s;
 }
 
@@ -139,6 +141,7 @@ ul li {
 .banner {
   text-align: center;
   background: #ffe6c9ab;
+  background: #131313c0;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 15px;
   display: inline-block;
   padding: 2rem;
@@ -148,7 +151,7 @@ ul li {
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   margin-bottom: 3rem;
-  color: var(--mainBlack);
+  color: var(--extraLight);
   font-weight: 800;
   font-family: "Montserrat", sans-serif;
 }
@@ -166,8 +169,8 @@ ul li {
   
 }
 .banner-btn:hover {
-  background: transparent;
-  color: #000;
+  /* background: transparent; */
+  color: var(--extraLight);
 }
 
 /* --------------- End Of hero section ---------------- */

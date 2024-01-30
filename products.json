@@ -5,7 +5,7 @@
             "fields":{
                 "title" : "Jeans",
                 "price": 10.99,
-                "image":"./images/model_jeans.jpg",
+                "image":"./images/model_jeans.webp",
                 "category" : ["JEANS","MEN"]
             }
         },
@@ -14,7 +14,7 @@
             "fields":{
                 "title" : "Black T-shirt",
                 "price": 10.99,
-                "image":"./images/model_men_black_tshirt.jpg",
+                "image":"./images/model_men_black_tshirt.webp",
                 "category" : "T-Shirt"
             }
         },
@@ -23,7 +23,7 @@
             "fields":{
                 "title" : "Blue T-shirt",
                 "price": 10.99,
-                "image":"./images/model_men_blue_tshirt.jpg"
+                "image":"./images/model_men_blue_tshirt.webp"
             }
         },
         {
@@ -31,7 +31,7 @@
             "fields":{
                 "title" : "Hoodie",
                 "price": 10.99,
-                "image":"./images/model_men_hoodie.jpg"
+                "image":"./images/model_men_hoodie.webp"
             }
         },
         {
@@ -39,7 +39,7 @@
             "fields":{
                 "title" : "Jacket",
                 "price": 10.99,
-                "image":"./images/model_men_jacket.jpg"
+                "image":"./images/model_men_jacket.webp"
             }
         },
         {
@@ -47,7 +47,7 @@
             "fields":{
                 "title" : "Shirt",
                 "price": 10.99,
-                "image":"./images/model_men_red_shirt.jpg"
+                "image":"./images/model_men_red_shirt.webp"
             }
         },
         {
@@ -55,7 +55,7 @@
             "fields":{
                 "title" : "White T-shirt",
                 "price": 10.99,
-                "image":"./images/model_men_white_tshirt.jpg"
+                "image":"./images/model_men_white_tshirt.webp"
             }
         },
         {
@@ -63,7 +63,7 @@
             "fields":{
                 "title" : "Black Jacket",
                 "price": 10.99,
-                "image":"./images/model_women_black_jacket.jpg"
+                "image":"./images/model_women_black_jacket.webp"
             }
         },
         {
@@ -71,7 +71,7 @@
             "fields":{
                 "title" : "Black T-shirt",
                 "price": 10.99,
-                "image":"./images/model_women_black_tshirt.jpg"
+                "image":"./images/model_women_black_tshirt.webp"
             }
         },
         {
@@ -79,7 +79,7 @@
             "fields":{
                 "title" : "Jacket",
                 "price": 10.99,
-                "image":"./images/model_women_jacket.jpg"
+                "image":"./images/model_women_jacket.webp"
             }
         },
         {
@@ -87,7 +87,7 @@
             "fields":{
                 "title" : "Crazy Kit",
                 "price": 10.99,
-                "image":"./images/model_women_modern.jpg"
+                "image":"./images/model_women_modern.webp"
             }
         },
         {
@@ -95,7 +95,7 @@
             "fields":{
                 "title" : "Red T-shirt",
                 "price": 10.99,
-                "image":"./images/model_women_red_tshirt.jpg"
+                "image":"./images/model_women_red_tshirt.webp"
             }
         }
     ]
