@@ -1,5 +1,15 @@
 
-const productsDOM = document.querySelector('.products-section');
+
+const shopNowBtn = document.querySelector('#shopNow')
+const cartBtn = document.querySelector('.cart-btn');
+const closeCartBtn = document.querySelector('.close-cart');
+const clearCartBtn = document.querySelector('.clear-cart');
+const cartDOM = document.querySelector('.cart');
+const cartOverlay = document.querySelector('.cart-overlay');
+const cartItems = document.querySelector('.cart-items');
+const cartTotal = document.querySelector('.cart-total');
+const cartContent = document.querySelector('.cart-content');
+const productsDOM = document.querySelector('.products-center');
 
 // cart 
 let cart = [];
@@ -80,41 +90,105 @@ class UI {
                     //save cart in local storage
                     Storage.saveCart(cart);
                     //set cart values
-                    this.setCartValues(cart);
+                    //this.setCartValues(cart);
                     //display cart item
-                    // this.addCartItem(cartItem)
+                    //this.addCartItem(cartItem)
                     //show the cart
-                    // this.showCart()
+                    //this.showCart()
                 });
         });
     }
     setCartValues(cart){
-        let tempTotal = 0;
-        let itemsTotal = 0;
-        cart.map(item => {
-            tempTotal += item.price * item.amount;
-            itemsTotal += item.amount;
-        });
-        cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
-        cartItems.innerText = itemsTotal;
-       }
+        // let tempTotal = 0;
+        // let itemsTotal = 0;
+        // cart.map(item => {
+        //     tempTotal += item.price * item.amount;
+        //     itemsTotal += item.amount;
+        // });
+        // cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+        // cartItems.innerText = itemsTotal;
+    }
        addCartItem(item){
         const div = document.createElement('div');
         div.classList.add('cart-item');
         div.innerHTML = `
         <img src=${item.image} alt="product">
-            <div>
-                <h4>${item.title}</h4>
-                <h5>$${item.price}</h5>
-                <span class="remove-item" data-id=${item.id}>remove</span>
-            </div>
-            <div>
-                <i class="fas fa-chevron-up" data-id=${item.id}></i>
-                <p class="item-amount">${item.amount}</p>
-                <i class="fas fa-chevron-down" data-id=${item.id}></i>
-            </div>
+        <div>
+            <h4>${item.title}</h4>
+            <h5>$${item.price}</h5>
+            <span class="remove-item" data-id=${item.id}>remove</span>
+        </div>
+        <div>
+            <svg class="quantity-up quantity-btn" data-id=${item.id} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+            <p class="item-amount">${item.amount}</p>
+            <svg class="quantity-down quantity-btn" data-id=${item.id} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+        </div>
         `
         cartContent.appendChild(div);
+    }
+    showCart(){
+        cartOverlay.classList.add('transparentBcg');
+        cartDOM.classList.add('showCart');
+    }
+    hideCart(){
+        cartOverlay.classList.remove('transparentBcg');
+        cartDOM.classList.remove('showCart');
+    }
+    populateCart(cart){
+        cart.forEach(item => this.addCartItem(item));
+    }
+    setupApp(){
+        cart = Storage.getCart();
+        this.setCartValues(cart);
+        this.populateCart(cart);
+        cartBtn.addEventListener('click',this.showCart);
+        closeCartBtn.addEventListener('click', this.hideCart);
+    }
+    cartLogic(){
+        //clear cart button
+        clearCartBtn.addEventListener("click",() =>{
+            this.clearCart();
+        });
+        //cart functionality
+        cartContent.addEventListener("click", (event)=>{
+            if(event.target.classList.contains('remove-item')){
+                let removeItem = event.target;
+                let id = remove.dataset.id;
+                cartContent.removeChild(removeItem.parentElement.parentElement);
+                this.removeItem(id);
+            }
+            else if(event.target.classList.contains('quantity-up')){
+                let addAmount = event.target;
+                let id = addAmount.dataset.id;
+                let tempItem = cart.find(item => item.id === id);
+                tempItem.amount += 1;
+                Storage.saveCart(cart);
+                this.setCartValues(cart);
+                addAmount.nextElementSibling.innerText = tempItem.amount;
+            }
+            else if(event.target.classList.contains('quantity-down')){
+                let lowerAmount = event.target;
+                let id = lowerAmount.dataset.id;
+                let tempItem = cart.find(item => item.id === id);
+                tempItem.amount -= 1;
+                if(tempItem.amount > 0){
+                    Storage.saveCart(cart);
+                    this.setCartValues(cart);
+                    lowerAmount.previousElementSibling.innerText = tempItem.amount;
+                }
+                else{
+                    cartContent.removeChild(lowerAmount.parentElement.parentElement);
+                    this.removeItem(id);
+                }
+               
+            }
+            
+        });
+    }
+    clearCart(){
+        let cartItems = cart.map(item => item.id);
+        console.log(cartItems);
+        
     }
 }
 
@@ -142,7 +216,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     const ui = new UI();
     const products = new Products();
     //setup app
-    // ui.setupApp();
+    ui.setupApp();
     // get all products
     products.getProducts().then(products =>{
         ui.displayProducts(products);
