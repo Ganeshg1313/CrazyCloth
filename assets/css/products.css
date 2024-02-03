@@ -113,7 +113,7 @@ body{
     transition: var(--mainTransition);
     background: #61606090;
     z-index: 2;
-    /* visibility: hidden; */
+    visibility: hidden;
   }
   .cart {
     position: fixed;
@@ -127,7 +127,7 @@ body{
     padding: 1.5rem;
     transition: var(--mainTransition);
     color: var(--dark);
-    /* transform: translateX(100%); */
+    transform: translateX(100%);
   }
   .showCart {
     transform: translateX(0);
@@ -151,6 +151,26 @@ body{
     width: 30px;
   }
 
+  .nav-icon {
+    font-size: 1.5rem;
+  }
+  .cart-btn {
+    margin-right: 3rem;
+    width: max-content;
+    position: relative;
+    cursor: pointer;
+  }
+  .cart-items {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--medium);
+    padding: 0 5px;
+    border-radius: 30%;
+    color: var(--mainWhite);
+  }
+
+ 
   .cart h2 {
     text-transform: capitalize;
     text-align: center;

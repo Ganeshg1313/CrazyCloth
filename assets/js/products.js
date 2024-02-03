@@ -1,5 +1,4 @@
 
-
 const shopNowBtn = document.querySelector('#shopNow')
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
@@ -9,7 +8,8 @@ const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
-const productsDOM = document.querySelector('.products-center');
+const productsDOM = document.querySelector('.products-section');
+
 
 // cart 
 let cart = [];
@@ -70,9 +70,8 @@ class UI {
     }
     getBagButtons(){
         const buttons = [...document.querySelectorAll(".bag-btn")];
-        console.log(buttons);
         
-        // buttonsDOM = buttons;
+        buttonsDOM = buttons;
         buttons.forEach(button =>{
             let id = button.dataset.id;
             let inCart = cart.find(item => item.id == id);
@@ -90,23 +89,23 @@ class UI {
                     //save cart in local storage
                     Storage.saveCart(cart);
                     //set cart values
-                    //this.setCartValues(cart);
+                    this.setCartValues(cart);
                     //display cart item
-                    //this.addCartItem(cartItem)
+                    this.addCartItem(cartItem)
                     //show the cart
-                    //this.showCart()
+                    this.showCart()
                 });
         });
     }
     setCartValues(cart){
-        // let tempTotal = 0;
-        // let itemsTotal = 0;
-        // cart.map(item => {
-        //     tempTotal += item.price * item.amount;
-        //     itemsTotal += item.amount;
-        // });
-        // cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
-        // cartItems.innerText = itemsTotal;
+        let tempTotal = 0;
+        let itemsTotal = 0;
+        cart.map(item => {
+            tempTotal += item.price * item.amount;
+            itemsTotal += item.amount;
+        });
+        cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+        cartItems.innerText = itemsTotal;
     }
        addCartItem(item){
         const div = document.createElement('div');
@@ -153,7 +152,7 @@ class UI {
         cartContent.addEventListener("click", (event)=>{
             if(event.target.classList.contains('remove-item')){
                 let removeItem = event.target;
-                let id = remove.dataset.id;
+                let id = removeItem.dataset.id;
                 cartContent.removeChild(removeItem.parentElement.parentElement);
                 this.removeItem(id);
             }
@@ -187,8 +186,23 @@ class UI {
     }
     clearCart(){
         let cartItems = cart.map(item => item.id);
-        console.log(cartItems);
-        
+        cartItems.forEach(id => this.removeItem(id));
+        while(cartContent.children.length > 0){
+            cartContent.removeChild(cartContent.children[0])
+        }
+        this.hideCart();
+    }
+    removeItem(id){
+        cart = cart.filter(item => item.id !== id);
+        this.setCartValues(cart);
+        Storage.saveCart(cart);
+        let button = this.getSingleButton(id);
+        button.disabled = false;
+        button.innerHTML = `<svg class="icon cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+        Add to cart`;
+    }
+    getSingleButton(id){
+        return buttonsDOM.find(button => button.dataset.id === id);
     }
 }
 
@@ -223,6 +237,8 @@ document.addEventListener("DOMContentLoaded",() =>{
         Storage.saveProduct(products);
     }).then(()=>{
         ui.getBagButtons();
+        ui.cartLogic();
     }); 
+
 
 })
