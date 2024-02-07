@@ -6,7 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
-<bowebp
+<body>
     <!-- Navbar -->
      <div class="nav">
         <a class="logo" href="index.html">CrazyCloth</a>
@@ -33,7 +33,7 @@
     <div class="categories-section">
         <h2 class="section-heading">Categories</h2>
         <div class="categories">
-            <div class="category">
+            <div class="category" data-catid="T-SHIRT">
                 <img class="category-img" src="./images/model_men_white_tshirt.webp" alt="">
                 <div class="category-overlay">
                     <p class="category-name">Men</p>
@@ -184,6 +184,17 @@
 
     <!-- End Of Footer -->
 
+    <script>
+        const btn = document.getElementById('shopNow');
+        
+        btn.addEventListener("click", () => {
+            document.querySelector('.categories-section').scrollIntoView({ behavior: 'smooth' }); 
+        });
+        
+        
+    </script>
+    
+    <script type="module" src="./assets/js/categoryLogs.js"></script>
     <script src="./assets/js/slideshow.js"></script>
     <script src="https://kit.fontawesome.com/31b77c59f7.js" crossorigin="anonymous"></script>
 </body>
