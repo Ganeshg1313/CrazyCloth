@@ -47,7 +47,7 @@ class UI {
             const categoryString = Array.isArray(category) ? category.join(' ') : category;
 
             result += `
-                <div class="product">
+                <div class="product" data-id=${product.id}>
                     <img src=${image} alt="">
                     <div class="product-info">
                         <div class="product-info-left">
@@ -226,6 +226,9 @@ class Storage{
 }
 
 
+
+
+
 document.addEventListener("DOMContentLoaded",() =>{
     
     const ui = new UI();
@@ -239,6 +242,15 @@ document.addEventListener("DOMContentLoaded",() =>{
     }).then(()=>{
         ui.getBagButtons();
         ui.cartLogic();
+        const productButtons = document.querySelectorAll('.product');
+        productButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                console.log(productId)
+                localStorage.setItem('ProductSelected', productId);
+                window.location.href = './productView.html';
+            });
+        });
     }); 
 
 

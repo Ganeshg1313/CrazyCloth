@@ -20,6 +20,28 @@
      </div>
     <!-- End of Navbar -->
 
+      <!-- cart  -->
+    <div class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
+            </span>
+            <h2>your cart</h2>
+            <div class="cart-content">
+                <!-- cart item -->
+                <div class="cart-items">
+                    
+                </div>
+                <!-- end of cart item -->
+            </div>
+            <div class="cart-footer">
+                <h3>your total : $ <span class="cart-total">0</span></h3>
+                <button class="clear-cart banner-btn">clear cart</button>
+            </div>
+        </div>
+    </div>
+   <!-- end of cart  -->
+
     <!-- Hero -->
     <div class="hero">
         <div class="banner">
@@ -33,37 +55,37 @@
     <div class="categories-section">
         <h2 class="section-heading">Categories</h2>
         <div class="categories">
-            <div class="category" data-catid="T-SHIRT">
+            <div class="category" data-catid="MEN">
                 <img class="category-img" src="./images/model_men_white_tshirt.webp" alt="">
                 <div class="category-overlay">
                     <p class="category-name">Men</p>
                 </div>
             </div>  
-            <div class="category">
+            <div class="category" data-catid="WOMEN">
                 <img class="category-img" src="./images/model_women_modern.webp" alt="">
                 <div class="category-overlay">
                     <p class="category-name">Women</p>
                 </div>
             </div>  
-            <div class="category">
+            <div class="category" data-catid="JACKETS">
                 <img class="category-img" src="./images/model_men_jacket.webp" alt="">
                 <div class="category-overlay">
                     <p class="category-name">Jackets</p>
                 </div>
             </div>  
-            <div class="category">
+            <div class="category" data-catid="HOODIES">
                 <img class="category-img" src="./images/model_women_black_jacket.webp" alt="">
                 <div class="category-overlay">
                     <p class="category-name">Hoodies</p>
                 </div>
             </div>  
-            <div class="category">
+            <div class="category" data-catid="JEANS">
                 <img class="category-img" src="./images/model_jeans.webp" alt="">
                 <div class="category-overlay">
                     <p class="category-name">Jeans</p>
                 </div>
             </div>  
-            <div class="category">
+            <div class="category" data-catid="T-SHIRT">
                 <img class="category-img" src="./images/model_women_black_tshirt.webp" alt="">
                 <div class="category-overlay">
                     <p class="category-name">T-Shirts</p>
@@ -184,17 +206,26 @@
 
     <!-- End Of Footer -->
 
-    <script>
+    <script> 
         const btn = document.getElementById('shopNow');
-        
         btn.addEventListener("click", () => {
             document.querySelector('.categories-section').scrollIntoView({ behavior: 'smooth' }); 
         });
-        
-        
+        const categoryButtons = document.querySelectorAll('.category');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const categoryId = button.getAttribute('data-catid');
+                selectedCategory = categoryId;
+                localStorage.setItem('selectedCategory', selectedCategory);
+                window.location.href = './dynamicProducts.html';
+            });
+        });
+  
     </script>
     
-    <script type="module" src="./assets/js/categoryLogs.js"></script>
+    <script type="module" src="./assets/js/sharedVariables.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
     <script src="./assets/js/slideshow.js"></script>
     <script src="https://kit.fontawesome.com/31b77c59f7.js" crossorigin="anonymous"></script>
 </body>

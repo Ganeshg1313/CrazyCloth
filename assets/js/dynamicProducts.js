@@ -1,4 +1,4 @@
-import { cart,updateCart, buttonsDOM, updateButtons, addToCart, filterCart, selectedCategory} from './sharedVariables.js';
+import { cart,updateCart, buttonsDOM, updateButtons, addToCart, filterCart} from './sharedVariables.js';
 
 
 
@@ -225,18 +225,19 @@ class Storage{
     }
 }
 
-
+const selectedCategory = localStorage.getItem('selectedCategory');
 document.addEventListener("DOMContentLoaded",() =>{
-    
-    console.log(selectedCategory);
-
     const ui = new UI();
     const products = new Products();
     //setup app
     ui.setupApp();
     // get all products
     products.getProducts().then(products => {
-        return products.filter(product => product.category == 'T-SHIRT');
+        if (selectedCategory) {
+            return products.filter(product => product.category.includes(selectedCategory));
+        } else {
+            return products;
+        }
     })
     .then(products =>{
         ui.displayProducts(products);

@@ -1,11 +1,12 @@
-import { selectedCategory, updateCategory } from "./sharedVariables.js";
+import {selectedCategory} from "./sharedVariables"
 
-const categorybtn = [...document.getElementsByClassName('category')];
+const category = [...document.querySelectorAll(".category")];
 
-categorybtn.forEach(btn => {
-    btn.addEventListener("click", () => {
-        let id = btn.dataset.catid;
-        updateCategory(id);
-        window.location.assign('dynamicProducts.html')
+category.forEach(element => {
+    element.addEventListener("click", ()=>{
+        const catid = element.dataset.catid ? element.dataset.catid : '';
+        selectedCategory = catid;
+        console.log(selectedCategory);
+            
     })
-})
+});

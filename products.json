@@ -15,7 +15,7 @@
                 "title" : "Black T-shirt",
                 "price": 10.99,
                 "image":"./images/model_men_black_tshirt.webp",
-                "category" : "T-SHIRT"
+                "category" : ["MEN","T-SHIRT"]
             }
         },
         {
@@ -23,7 +23,8 @@
             "fields":{
                 "title" : "Blue T-shirt",
                 "price": 10.99,
-                "image":"./images/model_men_blue_tshirt.webp"
+                "image":"./images/model_men_blue_tshirt.webp",
+                "category" : ["MEN","T-SHIRT"]
             }
         },
         {
@@ -31,7 +32,8 @@
             "fields":{
                 "title" : "Hoodie",
                 "price": 10.99,
-                "image":"./images/model_men_hoodie.webp"
+                "image":"./images/model_men_hoodie.webp",
+                "category" : ["MEN","HOODIES"]
             }
         },
         {
@@ -39,7 +41,8 @@
             "fields":{
                 "title" : "Jacket",
                 "price": 10.99,
-                "image":"./images/model_men_jacket.webp"
+                "image":"./images/model_men_jacket.webp",
+                "category" : ["MEN","JACKETS"]
             }
         },
         {
@@ -47,7 +50,8 @@
             "fields":{
                 "title" : "Shirt",
                 "price": 10.99,
-                "image":"./images/model_men_red_shirt.webp"
+                "image":"./images/model_men_red_shirt.webp",
+                "category" : ["MEN","T-SHIRT"]
             }
         },
         {
@@ -55,7 +59,8 @@
             "fields":{
                 "title" : "White T-shirt",
                 "price": 10.99,
-                "image":"./images/model_men_white_tshirt.webp"
+                "image":"./images/model_men_white_tshirt.webp",
+                "category" : ["MEN","T-SHIRT"]
             }
         },
         {
@@ -63,7 +68,8 @@
             "fields":{
                 "title" : "Black Jacket",
                 "price": 10.99,
-                "image":"./images/model_women_black_jacket.webp"
+                "image":"./images/model_women_black_jacket.webp",
+                "category" : ["WOMEN","JACKETS"]
             }
         },
         {
@@ -71,7 +77,8 @@
             "fields":{
                 "title" : "Black T-shirt",
                 "price": 10.99,
-                "image":"./images/model_women_black_tshirt.webp"
+                "image":"./images/model_women_black_tshirt.webp",
+                "category" : ["WOMEN","T-SHIRT"]
             }
         },
         {
@@ -79,7 +86,8 @@
             "fields":{
                 "title" : "Jacket",
                 "price": 10.99,
-                "image":"./images/model_women_jacket.webp"
+                "image":"./images/model_women_jacket.webp",
+                "category" : ["WOMEN","JACKETS"]
             }
         },
         {
@@ -87,7 +95,8 @@
             "fields":{
                 "title" : "Crazy Kit",
                 "price": 10.99,
-                "image":"./images/model_women_modern.webp"
+                "image":"./images/model_women_modern.webp",
+                "category" : ["WOMEN"]
             }
         },
         {
@@ -95,7 +104,8 @@
             "fields":{
                 "title" : "Red T-shirt",
                 "price": 10.99,
-                "image":"./images/model_women_red_tshirt.webp"
+                "image":"./images/model_women_red_tshirt.webp",
+                "category" : ["WOMEN","T-SHIRT"]
             }
         }
     ]
