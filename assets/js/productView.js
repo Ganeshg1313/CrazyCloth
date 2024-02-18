@@ -16,6 +16,9 @@ const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".product-view-wrapper");
+const relatedProductsDOM = document.querySelector(".related-products");
+let relatedCategory = "";
+let relatedCategoryProducts;
 
 //getting the products
 class Products {
@@ -44,6 +47,8 @@ class UI {
     products.forEach((product) => {
       const { title, price, image, category } = product;
 
+      relatedCategory = category;
+
       // Convert the array of categories into a single string
       const categoryString = Array.isArray(category)
         ? category.join(" ")
@@ -56,8 +61,8 @@ class UI {
             </div>
             <div class="product-right">
                 <h2 class="product-name">${title}</h2>
-                <p class="product-category">${category}</p>
-                <p class="product-price">Price: $${price}</p>
+                <p class="product-category">${categoryString}</p>
+                <p class="product-price"><b style="color:#1bff60;">Price:</b> $${price}</p>
                 <p class="product-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate, cum! Error pariatur quisquam repellat saepe dolores, distinctio omnis at hic.</p>
                 <button class="bag-btn" data-id="${product.id}">
                     <svg class="icon cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
@@ -68,7 +73,60 @@ class UI {
             `;
     });
     productsDOM.innerHTML = result;
+    this.loadRelatedProducts();
   }
+
+  displayRelatedProducts(pr){
+    let result = "";
+    pr.forEach((product) => {
+      const { title, price, image, category } = product;
+
+      // Convert the array of categories into a single string
+      const categoryString = Array.isArray(category)
+        ? category.join(" ")
+        : category;
+
+      result += `
+            <div class="product" data-id="${product.id}">
+                <img src=${image} alt="">
+                <div class="product-info">
+                    <div class="product-info-left">
+                        <p class="product-name">${title}</p>
+                        <p class="product-category">${categoryString}</p>
+                        <p class="product-price">$${price}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+    });
+    relatedProductsDOM.innerHTML = result;
+
+    const productButtons = document.querySelectorAll('.product');
+        productButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                localStorage.setItem('ProductSelected', productId);
+                window.location.href = './productView.html';
+            });
+        });
+  }
+
+  loadRelatedProducts() {
+    const Pr = new Products();
+    Pr.getProducts().then(products => {
+      if (relatedCategory) {
+        return products.filter((product) => 
+          Array.isArray(product.category) 
+          ? product.category.some(cat => relatedCategory.includes(cat)) 
+          : relatedCategory.includes(product.category)
+        );
+      } else {
+        return products;
+      }
+    })
+    .then(pr => this.displayRelatedProducts(pr))
+  }
+  
   getBagButtons() {
     const buttons = [...document.querySelectorAll(".bag-btn")];
     //buttonsDOM = buttons;

@@ -77,3 +77,118 @@ body{
 .bag-btn svg:hover{
     fill: var(--dark);
 }
+
+.related-product-view-wrapper{
+    width: 80%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px 50px;
+    margin: 20px auto;
+}
+
+.related-products{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.products-heading{
+    color: var(--extraLight);
+    border-bottom: 2px solid var(--extraLight);
+    padding: 10px 0;
+}
+
+.products-section{
+    width: 100%;
+    height: max-content;
+    padding: 5% 7%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.product{
+    width: 30%;
+    height: 25rem;
+    background: var(--dark);
+    padding: 20px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: .5em;
+    transition: all .05s linear;
+}
+
+.product:hover{
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    transition: all .05s linear;
+}
+
+.product img{
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.product-category{
+    opacity: .7;
+}
+
+.product-name{
+    font-size: 1.1rem;
+    font-weight: 700; 
+}
+
+.product-info{
+    width:100%;
+    height:max-content;
+    display:flex;
+}
+
+.product-info-left{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.product-info-right{
+    width:50%;
+    display: flex;
+    justify-content: end;
+}
+
+.bag-btn{
+    width: 130px;
+    height: 40px;
+    border-radius: 14px;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    padding:8px;
+    cursor: pointer;
+    transition: all .7s ease-out;
+}
+
+.bag-btn svg{
+    fill: var(--dark);
+}
+
+.bag-btn:hover{
+    background-color: var(--medium);
+    transition: all .3s ease-out;
+}
+
+.bag-btn svg:hover{
+    fill: var(--dark);
+}

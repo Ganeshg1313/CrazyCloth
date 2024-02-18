@@ -184,7 +184,7 @@ ul li {
   position: relative;
   cursor: pointer;
 }
-.cart-items {
+.cart-items{
   position: absolute;
   top: -8px;
   right: -8px;
