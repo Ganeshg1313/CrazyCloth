@@ -1,4 +1,4 @@
-import { cart,updateCart, buttonsDOM, updateButtons, addToCart, filterCart} from './sharedVariables.js';
+import { cart,updateCart, buttonsDOM, updateButtons, addToCart, filterCart ,updateTotalAmount} from './sharedVariables.js';
 
 
 
@@ -11,6 +11,8 @@ const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-section');
+const checkoutbtn =  document.querySelector(".checkout-btn");
+
 
 
 
@@ -79,6 +81,7 @@ class UI {
                 button.disabled = true;
             }
                 button.addEventListener("click",(event)=>{
+                    event.stopPropagation()
                     event.target.innerText = "In Cart";
                     event.target.disabled = true;
                     // get product from products
@@ -106,6 +109,7 @@ class UI {
         });
         cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
         cartItems.innerText = itemsTotal;
+        updateTotalAmount(tempTotal.toFixed(2))
     }
        addCartItem(item){
         const div = document.createElement('div');
@@ -256,6 +260,9 @@ document.addEventListener("DOMContentLoaded",() =>{
                 window.location.href = './productView.html';
             });
         });
+        checkoutbtn.addEventListener("click", ()=>{
+            window.location = "./checkout.html"
+        })
     }); 
 
 

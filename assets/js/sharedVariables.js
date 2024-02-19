@@ -1,6 +1,11 @@
 // sharedVariables.js
 export var cart = [];
-export var buttonsDOM = [];     
+export var buttonsDOM = [];
+export var totalAmount = 0;     
+
+export function updateTotalAmount(total){
+    totalAmount = total;
+}
 
 export function updateCart(newCart) {
     cart = newCart;

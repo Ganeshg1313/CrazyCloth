@@ -1,4 +1,4 @@
-import { cart, updateCart, filterCart, buttonsDOM} from "/assets/js/sharedVariables.js" ;
+import { cart, updateCart, filterCart, buttonsDOM, updateTotalAmount} from "/assets/js/sharedVariables.js" ;
 
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
@@ -8,6 +8,7 @@ const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
+const checkoutbtn =  document.querySelector(".checkout-btn");
 
 class UI{
     showCart(){
@@ -48,13 +49,14 @@ class UI{
         });
         cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
         cartItems.innerText = itemsTotal;
+        updateTotalAmount(tempTotal.toFixed(2))
     } 
 
     setUpApp(){
         updateCart(Storage.getCart());
         this.setCartValues(cart);
         this.populateCart(cart);
-        cartBtn.addEventListener('click',this.showCart);
+        cartBtn.addEventListener('click', this.showCart);
         closeCartBtn.addEventListener('click', this.hideCart);
     }
 
@@ -146,5 +148,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     ui.setUpApp();
     ui.cartLogic();
+
+    checkoutbtn.addEventListener("click", ()=>{
+        window.location = "./checkout.html"
+    })
 
 })

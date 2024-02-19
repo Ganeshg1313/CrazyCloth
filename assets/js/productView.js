@@ -5,6 +5,7 @@ import {
   updateButtons,
   addToCart,
   filterCart,
+  updateTotalAmount
 } from "./sharedVariables.js";
 
 const cartBtn = document.querySelector(".cart-btn");
@@ -17,8 +18,9 @@ const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".product-view-wrapper");
 const relatedProductsDOM = document.querySelector(".related-products");
+const checkoutbtn =  document.querySelector(".checkout-btn");
+
 let relatedCategory = "";
-let relatedCategoryProducts;
 
 //getting the products
 class Products {
@@ -166,6 +168,7 @@ class UI {
     });
     cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
     cartItems.innerText = itemsTotal;
+    updateTotalAmount(tempTotal.toFixed(2))
   }
   addCartItem(item) {
     const div = document.createElement("div");
@@ -302,6 +305,9 @@ document.addEventListener("DOMContentLoaded",() =>{
     }).then(()=>{
         ui.getBagButtons();
         ui.cartLogic();
+        checkoutbtn.addEventListener("click", ()=>{
+          window.location = "./checkout.html"
+      })
     }); 
 
 
