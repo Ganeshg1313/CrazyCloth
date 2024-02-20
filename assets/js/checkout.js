@@ -16,7 +16,7 @@ function orderSummary(){
         </div>
         `
         ordreList.innerHTML = result;
-        totalAmountSection.innerHTML = totalAmount;
+        totalAmountSection.innerHTML = '$' + totalAmount;
     });
 }
 

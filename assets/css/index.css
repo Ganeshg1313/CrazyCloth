@@ -148,6 +148,11 @@ ul li {
   align-items: center;
 }
 
+.cool-link svg{
+  width: 20px;
+  fill: var(--extraLight);
+}
+
 /* --------------- End of Navbar ---------------- */
 
 /* --------------- Cart ---------------- */

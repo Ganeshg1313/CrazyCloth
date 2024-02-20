@@ -253,7 +253,6 @@ document.addEventListener("DOMContentLoaded",() =>{
             productButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const productId = button.getAttribute('data-id');
-                    console.log(productId)
                     localStorage.setItem('ProductSelected', productId);
                     window.location.href = './productView.html';
                 });

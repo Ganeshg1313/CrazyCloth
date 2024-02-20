@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrazyCloth - Product</title>
+    <title>MyyStore</title>
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/productView.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 <body>
+
     <!-- Navbar -->
-     <div class="nav">
+    <div class="nav">
         <a class="logo" href="index.html">CrazyCloth</a>
         <ul>
             <li><a class="cool-link" href="index.html">Home</a></li>
@@ -17,7 +23,6 @@
             <li><a class="cool-link" href="aboutus.html">About Us</a></li>
             <li><a class="cool-link" href="contactus.html">Contact Us</a></li>
             <li><a class="cool-link" href="search.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></a></li>
-
         </ul>
         <div class="cart-btn">
             <span class="nav-icon">
@@ -25,10 +30,12 @@
             </span>
             <div class="cart-items">0</div>
         </div>
-     </div>
+        </div>
+    </div>
     <!-- End of Navbar -->
+
       <!-- cart  -->
-      <div class="cart-overlay">
+    <div class="cart-overlay">
         <div class="cart">
             <span class="close-cart">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm79 143c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
@@ -50,20 +57,40 @@
     </div>
    <!-- end of cart  -->
 
-    <div class="product-view-wrapper">
-    </div>
 
-   
-    <div class="related-product-view-wrapper">
-        <h2>Related Products</h2>
-        <div class="related-products">
+    <div class="wrapper">
+      <div class="search-bar-section">
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="What are you looking for?">
+            <button type="submit" class="searchButton">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+           </button>
+         </div>
+      </div>
+        
+      
+      <div class="search-product-list">
+        <template data-product-template>
+        <div class="search-product">
+          <img src="" alt="product" class="search-product-img">
+          <div class="search-product-desc">
+            <h2 class="search-product-title"></h2>
+            <p class="search-product-category"></p>
+          </div>
+          <div class="search-product-price">
             
+          </div>
         </div>
+        </template>
+      </div>
+      
     </div>
-    
-    
-    <script type="module" src="./assets/js/sharedVariables.js"></script>
-    <script type="module" src="./assets/js/productView.js"></script>
+      
+</div>
+
+    <script type="module" src="./assets/js/sharedVariables.js"></script>  
+    <script type="module" src="./assets/js/index.js"></script> 
+    <script src="assets/js/search.js"></script>
     <script src="https://kit.fontawesome.com/31b77c59f7.js" crossorigin="anonymous"></script>
 </body>
 </html>
