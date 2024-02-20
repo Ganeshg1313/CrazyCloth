@@ -245,12 +245,11 @@ document.addEventListener("DOMContentLoaded",() =>{
         }
     })
     .then(products =>{
-        setTimeout(()=>{
-            ui.displayProducts(products);
-            Storage.saveProduct(products);
             loader.classList.add("hidden");
             productsDOM.classList.remove("hidden");
-        },1900)
+            
+            ui.displayProducts(products);
+            Storage.saveProduct(products);
     }).then(()=>{
         ui.getBagButtons();
         ui.cartLogic();
@@ -263,9 +262,9 @@ document.addEventListener("DOMContentLoaded",() =>{
                 window.location.href = './productView.html';
             });
         });
-        checkoutbtn.addEventListener("click", ()=>{
-            window.location = "./checkout.html"
-        })
+    checkoutbtn.addEventListener("click", ()=>{
+        window.location = "./checkout.html"
+    })
     }); 
 
 

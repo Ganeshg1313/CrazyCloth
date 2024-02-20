@@ -241,29 +241,27 @@ document.addEventListener("DOMContentLoaded",() =>{
     ui.setupApp();
     // get all products
     products.getProducts().then(products =>{
-        setTimeout(()=>{
-            ui.displayProducts(products);
-            Storage.saveProduct(products);
             loader.classList.add("hidden");
             productsDOM.classList.remove("hidden");
-        },1900)
+            ui.displayProducts(products);
+            Storage.saveProduct(products);
         
     }).then(()=>{
         ui.getBagButtons();
-        ui.cartLogic();
-        const productButtons = document.querySelectorAll('.product');
-        productButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const productId = button.getAttribute('data-id');
-                console.log(productId)
-                localStorage.setItem('ProductSelected', productId);
-                window.location.href = './productView.html';
+            ui.cartLogic();
+            const productButtons = document.querySelectorAll('.product');
+            productButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-id');
+                    console.log(productId)
+                    localStorage.setItem('ProductSelected', productId);
+                    window.location.href = './productView.html';
+                });
+            
             });
-        
-        });
-        checkoutbtn.addEventListener("click", ()=>{
-            window.location = "./checkout.html"
-        })
+            checkoutbtn.addEventListener("click", ()=>{
+                window.location = "./checkout.html"
+            })
     }); 
 
 
