@@ -11,7 +11,7 @@ searchBtn.addEventListener("click",()=>{
     })
 })
 
-searchInput.addEventListener("keypress", (e) =>{
+searchInput.addEventListener("input", (e) =>{
     let value = e.target.value.toLowerCase(); // Convert search query to lowercase for case-insensitive comparison
     items.forEach(product => {
         const titleMatch = product.title.toLowerCase().includes(value);
