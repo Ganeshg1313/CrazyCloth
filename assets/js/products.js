@@ -12,6 +12,7 @@ const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-section');
 const checkoutbtn =  document.querySelector(".checkout-btn");
+const loader = document.querySelector(".loader");
 
 
 
@@ -240,8 +241,13 @@ document.addEventListener("DOMContentLoaded",() =>{
     ui.setupApp();
     // get all products
     products.getProducts().then(products =>{
-        ui.displayProducts(products);
-        Storage.saveProduct(products);
+        setTimeout(()=>{
+            ui.displayProducts(products);
+            Storage.saveProduct(products);
+            loader.classList.add("hidden");
+            productsDOM.classList.remove("hidden");
+        },1900)
+        
     }).then(()=>{
         ui.getBagButtons();
         ui.cartLogic();
