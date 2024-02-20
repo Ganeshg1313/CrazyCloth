@@ -11,7 +11,7 @@ searchBtn.addEventListener("click",()=>{
     })
 })
 
-searchInput.addEventListener("change", (e) =>{
+function search(e){
     let value = e.target.value.toLowerCase(); // Convert search query to lowercase for case-insensitive comparison
     items.forEach(product => {
         const titleMatch = product.title.toLowerCase().includes(value);
@@ -22,7 +22,11 @@ searchInput.addEventListener("change", (e) =>{
         
         product.element.classList.toggle("hidden", !isVisible);
     });
-});
+}
+
+searchInput.addEventListener("keypress", e => search(e));
+searchInput.addEventListener("change", e => search(e));
+
 
 
 class Products{
