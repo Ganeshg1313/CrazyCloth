@@ -24,8 +24,8 @@ function search(e){
     });
 }
 
-searchInput.addEventListener("keypress", e => search(e));
 searchInput.addEventListener("change", e => search(e));
+searchInput.addEventListener("keypress", e => search(e));
 
 
 
