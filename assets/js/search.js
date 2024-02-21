@@ -23,9 +23,7 @@ function search(e){
         product.element.classList.toggle("hidden", !isVisible);
     });
 }
-
-searchInput.addEventListener("change", e => search(e));
-// searchInput.addEventListener("keypress", e => search(e));
+searchInput.addEventListener("keypress", e => search(e));
 
 
 

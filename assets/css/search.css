@@ -81,6 +81,7 @@ body{
     justify-content: space-between;
     background-color: var(--dark);
     color: var(--extraLight);
+    box-shadow: 0 -20px 10px -20px #e9f8ee8f inset;
 }
 
 .search-product:hover{
