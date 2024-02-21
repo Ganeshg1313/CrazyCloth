@@ -88,6 +88,32 @@
       
 </div>
 
+    <script>
+            // Check if the device is a mobile device based on screen width
+        function isMobileDevice() {
+        return window.innerWidth <= 490; // Adjust the threshold as needed
+        }
+
+        // Run the script only on mobile devices
+        if (isMobileDevice()) {
+        const categories = document.querySelectorAll('.category');
+
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            } else {
+            entry.target.classList.remove('visible');
+            }
+        });
+        });
+
+        categories.forEach(category => {
+        observer.observe(category);
+        });
+        }
+
+    </script>
     <script type="module" src="./assets/js/sharedVariables.js"></script>  
     <script type="module" src="./assets/js/index.js"></script> 
     <script src="assets/js/search.js"></script>
