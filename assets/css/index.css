@@ -680,11 +680,14 @@ ul li {
     .cart-btn{
       margin-right: 20px;
     }
-    .category {
-      opacity: 0;
-      transition: opacity 0.5s ease; /* Define your transition */
+    .category .category-img{
+      opacity: .5;
+      transform: scale(1.2);
+      transition: var(--mainTransition);
     }
-    .category.visible {
-      opacity: 1;
+    
+    .category-overlay .category-name{
+      display: block;
+      transition: var(--mainTransition);
     }
 }
