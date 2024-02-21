@@ -124,9 +124,10 @@ body{
     }
     .search-product{
         width: 50%;
-        height: 500px;
+        height: max-content;
         flex-direction: column;
         gap: .5rem;
+
     }
     .search-product div{
         width: 100%;
