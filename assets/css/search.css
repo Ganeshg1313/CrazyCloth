@@ -146,6 +146,9 @@ body{
 
     .search-product{
         width: 100%;
+        height: max-content;
+        min-width: 400px;
+        justify-content: space-between;
     }
     
     
