@@ -1,4 +1,4 @@
-# CrazyCloth (STILL WORKING ON THIS PROJECT)
+# CrazyCloth 
 
 ## Functionalities
 
